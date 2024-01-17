@@ -3,17 +3,17 @@ import torch
 import bentoml
 from sentence_transformers import SentenceTransformer, models
 
+MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
 
 @bentoml.service(traffic={"timeout": 1})
 class SentenceEmbedding:
-    model_ref = bentoml.models.get("all-MiniLM-L6-v2")
 
     def __init__(self) -> None:
         
         # Load model and tokenizer
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         # define layers
-        first_layer = SentenceTransformer(self.model_ref.path)
+        first_layer = SentenceTransformer(MODEL_ID)
         pooling_model = models.Pooling(first_layer.get_sentence_embedding_dimension())
         self.model = SentenceTransformer(modules=[first_layer, pooling_model])
         print("Model loaded", "device:", self.device)
