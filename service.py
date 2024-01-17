@@ -5,7 +5,10 @@ from sentence_transformers import SentenceTransformer, models
 
 MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
 
-@bentoml.service(traffic={"timeout": 1})
+@bentoml.service(
+    traffic={"timeout": 60},
+    resources={"memory": "2Gi"},
+)
 class SentenceEmbedding:
 
     def __init__(self) -> None:
