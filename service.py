@@ -3,6 +3,18 @@ import torch
 import bentoml
 from sentence_transformers import SentenceTransformer, models
 
+
+SAMPLE_SENTENCES = [
+    "The sun dips below the horizon, painting the sky orange.",
+    "A gentle breeze whispers through the autumn leaves.",
+    "The moon casts a silver glow on the tranquil lake.",
+    "A solitary lighthouse stands guard on the rocky shore.",
+    "The city awakens as morning light filters through the streets.",
+    "Stars twinkle in the velvety blanket of the night sky.",
+    "The aroma of fresh coffee fills the cozy kitchen.",
+    "A curious kitten pounces on a fluttering butterfly."
+  ]
+
 MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
 
 @bentoml.service(
@@ -25,8 +37,9 @@ class SentenceEmbedding:
     @bentoml.api(batchable=True)
     def encode(
         self,
-        sentences: list[str],
+        sentences: list[str] = SAMPLE_SENTENCES,
     ) -> np.ndarray:
+        print("encoding sentences:", len(sentences))
         # Tokenize sentences
         sentence_embeddings= self.model.encode(sentences)
         return sentence_embeddings
