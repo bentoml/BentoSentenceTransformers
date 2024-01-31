@@ -9,6 +9,8 @@ This project demonstrates how to build a sentence embedding application using Be
 ## Install dependencies
 
 ```bash
+git clone https://github.com/bentoml/BentoSentenceTransformers.git
+cd BentoSentenceTransformers
 pip install -r requirements.txt
 ```
 
@@ -16,7 +18,7 @@ pip install -r requirements.txt
 
 We have defined a BentoML Service in `service.py`. Run `bentoml serve` in your project directory to start the Service.
 
-```python
+```bash
 $ bentoml serve .
 
 2024-01-18T06:40:53+0800 [INFO] [cli] Prometheus metrics for HTTP BentoServer from "service:SentenceEmbedding" can be accessed at http://localhost:3000/metrics.
