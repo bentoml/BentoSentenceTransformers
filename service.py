@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+import typing as t
+
 import numpy as np
 import torch
 import bentoml
@@ -37,7 +41,7 @@ class SentenceEmbedding:
     @bentoml.api(batchable=True)
     def encode(
         self,
-        sentences: list[str] = SAMPLE_SENTENCES,
+        sentences: t.List[str] = SAMPLE_SENTENCES,
     ) -> np.ndarray:
         print("encoding sentences:", len(sentences))
         # Tokenize sentences
@@ -46,4 +50,3 @@ class SentenceEmbedding:
 
 if __name__ == "__main__":
     SentenceEmbedding.serve_http()
-    
