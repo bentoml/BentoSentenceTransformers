@@ -25,7 +25,7 @@ MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
     traffic={"timeout": 60},
     resources={"memory": "2Gi"},
 )
-class SentenceEmbedding:
+class SentenceTransformers:
 
     def __init__(self) -> None:
         
@@ -49,4 +49,4 @@ class SentenceEmbedding:
         return sentence_embeddings
 
 if __name__ == "__main__":
-    SentenceEmbedding.serve_http()
+    SentenceTransformers.serve_http()
