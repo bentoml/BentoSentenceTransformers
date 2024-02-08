@@ -1,6 +1,6 @@
-bentoml>=1.2.0rc1
+bentoml>=1.2.2
 sentence-transformers==2.2.2
 sentencepiece==0.1.99
 torch==2.1.2
 transformers==4.37.1
-triton==2.1.0
+triton==2.1.0; sys_platform == "linux"
