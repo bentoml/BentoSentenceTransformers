@@ -3,9 +3,7 @@ from __future__ import annotations
 import typing as t
 
 import numpy as np
-import torch
 import bentoml
-from sentence_transformers import SentenceTransformer, models
 
 
 SAMPLE_SENTENCES = [
@@ -28,6 +26,9 @@ MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
 class SentenceTransformers:
 
     def __init__(self) -> None:
+
+        import torch
+        from sentence_transformers import SentenceTransformer, models
         
         # Load model and tokenizer
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -47,6 +48,3 @@ class SentenceTransformers:
         # Tokenize sentences
         sentence_embeddings= self.model.encode(sentences)
         return sentence_embeddings
-
-if __name__ == "__main__":
-    SentenceTransformers.serve_http()
