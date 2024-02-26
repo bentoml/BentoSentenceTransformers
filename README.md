@@ -1,15 +1,10 @@
 <div align="center">
-    <h1 align="center">BentoSentenceTransformers</h1>
-    <br>
-    <strong>Transform sentences to vectors, capturing meaning for tasks like classification and similarity comparison<br></strong>
-    <i>Powered by BentoML 🍱</i>
-    <br>
+    <h1 align="center">Serving SentenceTransformers with BentoML</h1>
 </div>
-<br>
 
-Sentence embedding technology transforms sentences into vectors in a high-dimensional space, capturing semantic meaning such that sentences with similar meanings are positioned closer together, enabling various natural language processing tasks like text classification, similarity comparison, and information retrieval.
+[SentenceTransformers](https://www.sbert.net) is a Python framework for state-of-the-art sentence, text and image embeddings.
 
-This project demonstrates how to build a sentence embedding application using BentoML, powered by [SentenceTransformers](https://www.sbert.net).
+This is a BentoML example project, demonstrating how to build a sentence embedding inference API server, using a SentenceTransformers model [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2). See [here](https://github.com/bentoml/BentoML?tab=readme-ov-file#%EF%B8%8F-what-you-can-build-with-bentoml) for a full list of BentoML example projects.
 
 ## Prerequisites
 
@@ -65,6 +60,8 @@ with bentoml.SyncHTTPClient("http://localhost:3000") as client:
         ],
     )
 ```
+
+For detailed explanations of the Service code, see [Sentence Transformer](https://docs.bentoml.org/en/latest/use-cases/embeddings/sentence-transformer.html).
 
 ## Deploy to BentoCloud
 
