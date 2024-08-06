@@ -17,7 +17,7 @@ MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
 
 @bentoml.service(
     traffic={"timeout": 60},
-    resources={"memory": "2Gi"},
+    resources={"gpu": "nvidia-t4"},
 )
 class SentenceTransformers:
 
