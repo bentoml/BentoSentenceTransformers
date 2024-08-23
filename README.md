@@ -6,17 +6,13 @@
 
 This is a BentoML example project, demonstrating how to build a sentence embedding inference API server, using a SentenceTransformers model [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2). See [here](https://github.com/bentoml/BentoML?tab=readme-ov-file#%EF%B8%8F-what-you-can-build-with-bentoml) for a full list of BentoML example projects.
 
-## Prerequisites
-
-- You have installed Python 3.8+ and `pip`. See the [Python downloads page](https://www.python.org/downloads/) to learn more.
-- You have a basic understanding of key concepts in BentoML, such as Services. We recommend you read [Quickstart](https://docs.bentoml.com/en/latest/get-started/quickstart.html) first.
-- (Optional) We recommend you create a virtual environment for dependency isolation for this project. See the [Conda documentation](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) or the [Python documentation](https://docs.python.org/3/library/venv.html) for details.
-
 ## Install dependencies
 
 ```bash
 git clone https://github.com/bentoml/BentoSentenceTransformers.git
 cd BentoSentenceTransformers
+
+# Recommend Python 3.11
 pip install -r requirements.txt
 ```
 
