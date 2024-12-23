@@ -4,7 +4,7 @@
 
 [SentenceTransformers](https://www.sbert.net) is a Python framework for state-of-the-art sentence, text and image embeddings.
 
-This is a BentoML example project, demonstrating how to build a sentence embedding inference API server, using a SentenceTransformers model [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2). See [here](https://github.com/bentoml/BentoML?tab=readme-ov-file#%EF%B8%8F-what-you-can-build-with-bentoml) for a full list of BentoML example projects.
+This is a BentoML example project, demonstrating how to build a sentence embedding inference API server, using a SentenceTransformers model [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2). See [here](https://docs.bentoml.com/en/latest/examples/overview.html) for a full list of BentoML example projects.
 
 ## Install dependencies
 
