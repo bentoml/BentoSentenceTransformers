@@ -1,9 +1,7 @@
-from __future__ import annotations
-
-import typing as t
-
 import numpy as np
-import bentoml
+from bentoml import service, api
+from bentoml.images import PythonImage as Image
+from bentoml.models import HuggingFaceModel
 
 
 SAMPLE_SENTENCES = [
@@ -15,23 +13,25 @@ SAMPLE_SENTENCES = [
 
 MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
 
-@bentoml.service(
-    traffic={"timeout": 60},
+
+@service(
+    image=Image(python_version="3.11").requirements_file("./requirements.txt"),
     resources={"gpu": 1, "gpu_type": "nvidia-t4"},
+    envs=[{"name": "NORMALIZE", "value": "True"}],
 )
 class SentenceTransformers:
+    model_path = HuggingFaceModel(MODEL_ID)
 
     def __init__(self) -> None:
         import torch
-        from sentence_transformers import SentenceTransformer, models
+        from sentence_transformers import SentenceTransformer
         
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.model = SentenceTransformer(MODEL_ID, device=self.device)
-        print(f"Model '{MODEL_ID}' loaded on device: '{self.device}'.")
+        self.model = SentenceTransformer(self.model_path, device=self.device)
 
-    @bentoml.api(batchable=True)
+    @api(batchable=True)
     def encode(
         self,
-        sentences: t.List[str] = SAMPLE_SENTENCES,
+        sentences: list[str] = SAMPLE_SENTENCES,
     ) -> np.ndarray:
         return self.model.encode(sentences)
