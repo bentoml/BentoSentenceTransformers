@@ -4,7 +4,7 @@
 
 [SentenceTransformers](https://www.sbert.net) is a Python framework for state-of-the-art sentence, text and image embeddings.
 
-This is a BentoML example project, demonstrating how to build a sentence embedding inference API server, using a SentenceTransformers model [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2). See [here](https://docs.bentoml.com/en/latest/examples/overview.html) for a full list of BentoML example projects.
+This is a BentoML example project, demonstrating how to build a sentence embedding inference API server, using a SentenceTransformers model [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2).
 
 ## Install dependencies
 
@@ -57,18 +57,4 @@ with bentoml.SyncHTTPClient("http://localhost:3000") as client:
     )
 ```
 
-For detailed explanations of the Service code, see [Sentence Transformer](https://docs.bentoml.org/en/latest/use-cases/embeddings/sentence-transformer.html).
-
-## Deploy to BentoCloud
-
-After the Service is ready, you can deploy the application to BentoCloud for better management and scalability. [Sign up](https://www.bentoml.com/) if you haven't got a BentoCloud account.
-
-Make sure you have [logged in to BentoCloud](https://docs.bentoml.com/en/latest/bentocloud/how-tos/manage-access-token.html), then run the following command to deploy it.
-
-```bash
-bentoml deploy .
-```
-
-Once the application is up and running on BentoCloud, you can access it via the exposed URL.
-
-**Note**: For custom deployment in your own infrastructure, use [BentoML to generate an OCI-compliant image](https://docs.bentoml.com/en/latest/guides/containerization.html).
+For custom deployment in your own infrastructure, use [BentoML to generate an OCI-compliant image](https://docs.bentoml.com/en/latest/guides/containerization.html).
